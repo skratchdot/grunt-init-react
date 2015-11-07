@@ -1,0 +1,34 @@
+{
+  "name": "grunt-init-react",
+  "version": "0.1.0",
+  "description": "grunt-init template for a very basic react project.",
+  "homepage": "https://github.com/skratchdot/grunt-init-react/",
+  "author": "skratchdot",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skratchdot/grunt-init-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skratchdot/grunt-init-react/issues"
+  },
+  "main": "template.js",
+  "engines": {
+    "node": ">= 4.x.0"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "generator",
+    "grunt init",
+    "grunt plugin",
+    "grunt templates",
+    "gruntplugin",
+    "init",
+    "site generator",
+    "yeoman generator",
+    "yeoman",
+    "yo"
+  ]
+}
