@@ -1,0 +1,4 @@
+[submodule "example/build/prod"]
+	path = example/build/prod
+	url = git@github.com:skratchdot/grunt-init-react.git
+	branch = gh-pages
