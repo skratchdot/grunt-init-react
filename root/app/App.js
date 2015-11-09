@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 // pages
+import Page from './components/Page';
 import NotFound from './pages/NotFound';
-import One from './pages/One';
-import Two from './pages/Two';
+import Home from './pages/Home';
+import Echo from './pages/Echo';
 // variables
 const packageInfo = require('../package.json');
 
@@ -13,16 +14,9 @@ const packageInfo = require('../package.json');
 const App = React.createClass({
 	render() {
 		return (
-			<div>
-				<div>
-					<Link to={`/${packageInfo.name}/one`}>One</Link>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<Link to={`/${packageInfo.name}/two`}>Two</Link>
-				</div>
-				<div>
-					{this.props.children}
-				</div>
-			</div>
+			<Page>
+				{this.props.children}
+			</Page>
 		);
 	}
 });
@@ -30,8 +24,9 @@ const App = React.createClass({
 // create and render routes
 const routes = (
 	<Route component={App}>
-		<Route path={`/${packageInfo.name}/one`} component={One} />
-		<Route path={`/${packageInfo.name}/two`} component={Two} />
+		<Route path={`/${packageInfo.name}`} component={Home} />
+		<Route path={`/${packageInfo.name}/home`} component={Home} />
+		<Route path={`/${packageInfo.name}/echo(/:echo)`} component={Echo} />
 		<Route path="*" component={NotFound} />
 	</Route>
 );
