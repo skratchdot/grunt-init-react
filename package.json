@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "description": "grunt-init template for a very basic react project.",
   "homepage": "https://github.com/skratchdot/grunt-init-react/",
-  "author": "skratchdot",
+  "author": {
+    "name": "skratchdot",
+    "url": "http://skratchdot.com/"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
