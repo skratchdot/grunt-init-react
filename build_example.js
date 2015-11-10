@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var path = require('path');
 var child_process = require('child_process');
+var fs = require('fs');
 var spawn = require('child_process').spawn;
 var packageInfo = require('./package.json');
 var workingDirectory = path.resolve(__dirname + '/example');
@@ -33,6 +34,8 @@ gruntInit.on('close', function () {
   npmInstall.stdout.on('data', function (data) {console.log(data.toString());});
   npmInstall.on('close', function () {
     console.log('`npm install` process terminated. Running `gulp build:prod`.');
+    var readme = fs.readFileSync(path.resolve(__dirname + '/README.md'), 'utf-8');
+    fs.writeFileSync(path.resolve(__dirname + '/example/README.md'), readme, 'utf-8');
     var gulpBuild = spawn('gulp', ['build:prod'], {
       cwd: workingDirectory
     });
@@ -40,5 +43,8 @@ gruntInit.on('close', function () {
     gulpBuild.on('close', function () {
       console.log('`gulp build:prod` process terminated. Done.');
     });
+
+
+
   });
 });

@@ -19,7 +19,7 @@ module.exports = React.createClass({
 							<h1 className="title">
 								grunt-init-react
 								&nbsp;
-								<small>grunt-init template for a very basic react project.</small>
+								<small>version {packageInfo.version}</small>
 							</h1>
 						</Link>
 					</Col>
@@ -29,6 +29,9 @@ module.exports = React.createClass({
 									this.isLinkActive(`/${packageInfo.name}`) +
 									this.isLinkActive(`/${packageInfo.name}/home`)}>
 								<Link to={`/${packageInfo.name}`}>Home</Link>
+							</li>
+							<li key="about" className={this.isLinkActive(`/${packageInfo.name}/about`)}>
+								<Link to={`/${packageInfo.name}/about`}>About</Link>
 							</li>
 							<li key="echo" className={this.isLinkActive(`/${packageInfo.name}/echo/${this.props.pageParams.echo}`)}>
 								<Link to={`/${packageInfo.name}/echo`}>Echo</Link>

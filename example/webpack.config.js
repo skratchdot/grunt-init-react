@@ -21,7 +21,7 @@ module.exports = {
             {
               test: /\.js$/,
               exclude: /node_modules/,
-              loaders: ['react-hot', 'babel-loader']
+              loaders: ['transform/cacheable?brfs', 'react-hot', 'babel-loader']
             },
             {
               test: /\.html$/,
