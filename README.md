@@ -6,6 +6,7 @@ grunt-init template for a very basic react project.
 ## Getting started
 
 ### Installation
+
 If you haven't already done so, install
 [Grunt](https://github.com/gruntjs/grunt) and
 [grunt-init](https://github.com/gruntjs/grunt-init):
@@ -24,6 +25,7 @@ git clone https://github.com/skratchdot/grunt-init-react.git ~/.grunt-init/react
 
 
 ### Usage
+
 Now that `grunt init` is installed. At the command-line, cd into an empty
 directory and run `grunt-init react` and follow the prompts. You might want to
 test that it works before you begin customizing the project:
@@ -33,6 +35,13 @@ test that it works before you begin customizing the project:
 
 _Note that this template will generate files in the current directory, so be
 sure to change to a new directory first._
+
+
+## Demo Site
+
+To see an example of the site that is generated, you can visit the demo site:
+
+- [Demo Site](http://projects.skratchdot.com/grunt-init-react/)
 
 
 ## License
