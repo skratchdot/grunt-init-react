@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 module.exports = React.createClass({
 	render: function () {
 		return (
-			<div>
+			<footer>
 				<Row>
 					<Col md={12}><div className="main-seperator"></div></Col>
 				</Row>
@@ -17,7 +17,7 @@ module.exports = React.createClass({
 					</Col>
 				</Row>
 				<br />
-			</div>
+			</footer>
 		);
 	}
 });

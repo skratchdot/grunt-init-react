@@ -32,8 +32,12 @@ module.exports = {
               loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
             },
             {
+              test: /.*\/images\/.*/,
+              loader: 'url?name=./images/[name].[ext]'
+            },
+            {
               test: /\.eot$|\.svg$|\.ttf$|\.woff$|\.woff2$/,
-              loader: 'file?name=./fonts/[name].[ext]'
+              loader: 'url?name=./fonts/[name].[ext]'
             },
             {
               test: /\.json$/,

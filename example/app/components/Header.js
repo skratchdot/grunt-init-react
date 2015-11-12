@@ -12,7 +12,7 @@ module.exports = React.createClass({
 	},
 	render: function () {
 		return (
-			<div>
+			<header>
 				<Row className="header">
 					<Col md={6}>
 						<Link to={`/${packageInfo.name}`}>
@@ -42,7 +42,7 @@ module.exports = React.createClass({
 				<Row>
 					<Col md={12}><div className="main-seperator"></div></Col>
 				</Row>
-			</div>
+			</header>
 		);
 	}
 });
