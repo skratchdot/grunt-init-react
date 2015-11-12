@@ -1,20 +1,24 @@
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const packageInfo = require('./package.json');
 module.exports = {
     context: `${__dirname}/app`,
-    entry: [
-      './App.js',
-      './index.html',
-      './styles/app.less'
-    ],
+    entry: {
+      'js/app.js': ['./App.js'],
+      'css/app.css': ['./styles/app.less']
+    },
     output: {
-        filename: 'app.js',
-        path: `${__dirname}/build/dev/${packageInfo.name}/js`
+        filename: '[name]',
+        path: `${__dirname}/build/dev/${packageInfo.name}`
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new ExtractTextPlugin('../css/app.css')
+      new ExtractTextPlugin('css/app.css'),
+      new CopyWebpackPlugin([
+        { from: './index.html', to: './index.html' },
+        { from: './index.html', to: './404.html' }
+      ])
     ],
     module: {
         loaders: [
@@ -24,16 +28,12 @@ module.exports = {
               loaders: ['transform/cacheable?brfs', 'react-hot', 'babel-loader']
             },
             {
-              test: /\.html$/,
-              loader: 'file?name=../[name].[ext]'
-            },
-            {
               test: /\.less$/,
               loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
             },
             {
               test: /\.eot$|\.svg$|\.ttf$|\.woff$|\.woff2$/,
-              loader: 'file?name=../fonts/[name].[ext]'
+              loader: 'file?name=./fonts/[name].[ext]'
             },
             {
               test: /\.json$/,

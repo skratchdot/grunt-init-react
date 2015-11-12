@@ -49,7 +49,7 @@ gulp.task('build:prod', function (callback) {
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin()
 	);
-	myConfig.output.path = __dirname + '/build/prod/js';
+	myConfig.output.path = __dirname + '/build/prod';
 
 	// run webpack
 	webpack(myConfig, function (err, stats) {
@@ -68,8 +68,12 @@ const myDevConfig = Object.create(webpackConfig);
 myDevConfig.devtool = 'sourcemap';
 myDevConfig.debug = true;
 // from: http://webpack.github.io/docs/webpack-dev-server.html
-myDevConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + port);
-myDevConfig.entry.unshift('webpack/hot/only-dev-server');
+Object.keys(myDevConfig.entry).forEach(function (key) {
+	myDevConfig.entry[key].unshift('webpack-dev-server/client?http://localhost:' + port);
+	myDevConfig.entry[key].unshift('webpack/hot/only-dev-server');
+});
+//myDevConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + port);
+//myDevConfig.entry.unshift('webpack/hot/only-dev-server');
 
 // create a single instance of the compiler to allow caching
 const devCompiler = webpack(myDevConfig);
@@ -94,9 +98,7 @@ gulp.task('server', function () {
 	myConfig.debug = true;
 	// Start a webpack-dev-server
 	new WebpackDevServer(webpack(myConfig), {
-		path: `${devDir}/js`,
-		publicPath: `/${packageInfo.name}/js`,
-		contentBase: `${__dirname}/build/dev`,
+		publicPath: `/${packageInfo.name}/`,
 		historyApiFallback: {
 			index: `/${packageInfo.name}/index.html`
 		},
