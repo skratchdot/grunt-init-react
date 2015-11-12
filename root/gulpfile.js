@@ -72,8 +72,6 @@ Object.keys(myDevConfig.entry).forEach(function (key) {
 	myDevConfig.entry[key].unshift('webpack-dev-server/client?http://localhost:' + port);
 	myDevConfig.entry[key].unshift('webpack/hot/only-dev-server');
 });
-//myDevConfig.entry.unshift('webpack-dev-server/client?http://localhost:' + port);
-//myDevConfig.entry.unshift('webpack/hot/only-dev-server');
 
 // create a single instance of the compiler to allow caching
 const devCompiler = webpack(myDevConfig);

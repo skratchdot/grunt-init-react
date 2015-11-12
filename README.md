@@ -42,6 +42,7 @@ sure to change to a new directory first._
 To see an example of the site that is generated, you can visit the demo site:
 
 - [Demo Site](http://projects.skratchdot.com/grunt-init-react/)
+- [Source Code](https://github.com/skratchdot/grunt-init-react/)
 
 
 ## License
