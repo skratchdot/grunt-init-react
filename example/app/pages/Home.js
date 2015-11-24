@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 
-module.exports = React.createClass({
-  render: function () {
+class Home extends Component {
+  render() {
     return (
       <div>
         <Jumbotron className="text-center">
@@ -18,4 +18,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+export default Home;

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-module.exports = React.createClass({
-	render: function () {
+class Footer extends Component {
+  render() {
 		return (
 			<footer>
 				<Row>
@@ -20,4 +20,6 @@ module.exports = React.createClass({
 			</footer>
 		);
 	}
-});
+}
+
+export default Footer;

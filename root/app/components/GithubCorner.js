@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-module.exports = React.createClass({
-  getDefaultProps: function () {
+class GithubCorner extends Component {
+  getDefaultProps() {
     return {
       href: '/'
     };
-  },
-	render: function () {
+  }
+  render() {
 		return (
       <a href={this.props.href} className="github-corner">
         <svg width="80" height="80" viewBox="0 0 250 250">
@@ -17,4 +17,6 @@ module.exports = React.createClass({
       </a>
 		);
 	}
-});
+}
+
+export default GithubCorner;

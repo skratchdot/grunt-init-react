@@ -5,7 +5,7 @@ const packageInfo = require('./package.json');
 module.exports = {
     context: `${__dirname}/app`,
     entry: {
-      'js/app.js': ['./App.js'],
+      'js/app.js': ['./index.js'],
       'css/app.css': ['./styles/app.less']
     },
     output: {

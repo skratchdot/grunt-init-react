@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { Link } from 'react-router';
 const packageInfo = require('../../package.json');
 
-module.exports = React.createClass({
-  render: function () {
+class NotFound extends Component {
+  render() {
     return (
       <div>
         <Jumbotron className="text-center">
@@ -21,4 +21,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+export default NotFound;
