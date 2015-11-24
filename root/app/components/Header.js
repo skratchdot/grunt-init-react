@@ -16,7 +16,7 @@ class Header extends Component {
 					<Col md={6}>
 						<Link to={`/${packageInfo.name}`}>
 							<h1 className="title">
-								grunt-init-react
+								{%= name %}
 								&nbsp;
 								<small>version {packageInfo.version}</small>
 							</h1>
