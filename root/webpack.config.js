@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const packageInfo = require('./package.json');
 module.exports = {
-    context: `${__dirname}/app`,
+    context: `${__dirname}/src/app`,
     entry: {
       'js/app.js': ['./index.js'],
       'css/app.css': ['./styles/app.less']
