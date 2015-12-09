@@ -1,7 +1,7 @@
 {
   "name": "grunt-init-react",
   "description": "grunt-init template for a very basic react project.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/skratchdot/grunt-init-react/",
   "author": {
     "name": "skratchdot",
@@ -54,6 +54,7 @@
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
+    "react-github-corner": "^0.1.0",
     "react-hot-loader": "^1.3.0",
     "react-redux": "^4.0.0",
     "react-router": "^1.0.1",

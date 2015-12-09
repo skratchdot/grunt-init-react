@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
+import GithubCorner from 'react-github-corner';
 import pathGet from 'object-path-get';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import GithubCorner from '../components/GithubCorner';
 import stringToCssName from '../helpers/stringToCssName';
 
 class App extends Component {
