@@ -126,6 +126,7 @@ gulp.task('server', function () {
 	myConfig.debug = true;
 	// Start a webpack-dev-server
 	new WebpackDevServer(webpack(myConfig), {
+		hot: true,
 		publicPath: `/${packageInfo.name}/`,
 		historyApiFallback: {
 			index: `/${packageInfo.name}/index.html`
