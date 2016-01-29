@@ -6,7 +6,7 @@ const packageInfo = require('../../../package.json');
 
 class Header extends Component {
 	isLinkActive(pathname) {
-		return this.context.history.isActive(pathname) ? 'active' : '';
+		return this.context.router.isActive(pathname) ? 'active' : '';
 	}
 	render() {
 		const { counter } = this.props;
@@ -58,7 +58,7 @@ class Header extends Component {
 }
 
 Header.contextTypes = {
-	history: React.PropTypes.object
+	router: React.PropTypes.object
 };
 
 export default connect(function (state) {
