@@ -64,7 +64,6 @@
     "redux-devtools-filter-actions": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
     "redux-mock-store": "0.0.6",
-    "redux-simple-router": "^2.0.4",
     "redux-thunk": "^2.0.1",
     "reselect": "^2.3.0",
     "style-loader": "^0.13.1",

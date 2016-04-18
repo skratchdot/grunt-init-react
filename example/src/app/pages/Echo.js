@@ -1,5 +1,5 @@
+import { Col, Jumbotron, Row } from 'react-bootstrap';
 import React, { Component } from 'react';
-import { Row, Col, Jumbotron } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 const packageInfo = require('../../../package.json');

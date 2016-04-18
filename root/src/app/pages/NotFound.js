@@ -16,7 +16,9 @@ class NotFound extends Component {
             the button below:
           </p>
           <p>
-            <Link to={`/${packageInfo.name}`} className="btn btn-primary">Homepage</Link>
+            <Link to={`/${packageInfo.name}`} className="btn btn-primary">
+              Homepage
+            </Link>
           </p>
         </Jumbotron>
       </div>

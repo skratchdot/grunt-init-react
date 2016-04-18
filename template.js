@@ -44,7 +44,7 @@ exports.template = function(grunt, init, done) {
 
     // Actually copy (and process) files.
     init.copyAndProcess(files, props, {
-      noProcess: 'app/images/**'
+      noProcess: ['app/images/**', 'node_modules/**']
     });
 
     // Generate package.json file.
