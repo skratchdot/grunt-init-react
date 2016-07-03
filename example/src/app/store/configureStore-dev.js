@@ -1,7 +1,7 @@
 import { applyMiddleware, compose, createStore } from 'redux';
-import DevTools from '../containers/DevTools';
+import DevTools from '~/src/app/containers/DevTools';
 import { browserHistory } from 'react-router';
-import rootReducer from '../reducers';
+import rootReducer from '~/src/app/reducers';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 

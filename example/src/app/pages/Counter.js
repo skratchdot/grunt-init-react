@@ -1,6 +1,6 @@
 import { Button, Jumbotron } from 'react-bootstrap';
 import React, { Component } from 'react';
-import { increment, set } from '../actions/counter';
+import { increment, set } from '~/src/app/actions/counter';
 import { connect } from 'react-redux';
 
 class Counter extends Component {

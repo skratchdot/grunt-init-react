@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import DevTools from './DevTools';
-import Footer from '../components/Footer';
+import Footer from '~/src/app/components/Footer';
 import GithubCorner from 'react-github-corner';
 import { Grid } from 'react-bootstrap';
-import Header from '../components/Header';
+import Header from '~/src/app/components/Header';
 import pathGet from 'object-path-get';
-import stringToCssName from '../helpers/stringToCssName';
+import stringToCssName from '~/src/app/helpers/stringToCssName';
 
 class App extends Component {
   render() {

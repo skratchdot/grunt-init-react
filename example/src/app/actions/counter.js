@@ -1,4 +1,4 @@
-import * as types from '../constants/ActionTypes';
+import * as types from '~/src/app/constants/ActionTypes';
 
 export function increment(value) {
   return {
