@@ -2,7 +2,7 @@ import { Col, Nav, Row } from 'react-bootstrap';
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-const packageInfo = require('../../../package.json');
+import packageInfo from '~/package.json';
 
 class Header extends Component {
   isLinkActive(pathname) {

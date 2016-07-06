@@ -41,6 +41,10 @@ module.exports = {
         loader: 'url?name=./fonts/[name].[ext]'
       },
       {
+        test: /\.md$/,
+        loader: 'raw?name=[name].[ext]'
+      },
+      {
         test: /\.json$/,
         loader: 'json?name=[name].[ext]'
       }

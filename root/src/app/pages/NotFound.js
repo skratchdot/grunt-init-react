@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-const packageInfo = require('../../../package.json');
+import packageInfo from '~/package.json';
 
 class NotFound extends Component {
   render() {

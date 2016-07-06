@@ -6,7 +6,7 @@ import Home from '~/src/app/pages/Home';
 import NotFound from '~/src/app/pages/NotFound';
 import React from 'react';
 import { Route } from 'react-router';
-const packageInfo = require('../../../package.json');
+import packageInfo from '~/package.json';
 
 const routes = (
   <Route component={App}>

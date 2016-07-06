@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import marked from 'marked';
-const fs = require('fs');
-const readmeContents = fs.readFileSync(`${__dirname}/../../../README.md`,
-  'utf-8');
+import readmeContents from '~/README.md';
 const readmeHtml = marked(readmeContents);
 
 class About extends Component {
