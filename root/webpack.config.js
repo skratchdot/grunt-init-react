@@ -42,7 +42,7 @@ module.exports = {
       },
       {
         test: /\.md$/,
-        loader: 'raw?name=[name].[ext]'
+        loader: 'html!markdown'
       },
       {
         test: /\.json$/,
