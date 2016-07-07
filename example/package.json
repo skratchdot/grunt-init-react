@@ -80,6 +80,7 @@
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.2",
     "style-loader": "^0.13.1",
+    "testdouble": "^1.4.3",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
