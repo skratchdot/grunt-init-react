@@ -8,14 +8,14 @@ describe('counter actions', () => {
   it('creates INCREMENT_COUNTER when increment(value) is called', () => {
     [-5, -1, 0, 1, 5].forEach((value) => {
       expect(actions.increment(value)).to.eql({
-        type: 'INCREMENT_COUNTER', value: value
+        type: 'INCREMENT_COUNTER', payload: value
       });
     });
   });
   it('creates SET_COUNTER when set(value) is called', () => {
     [-5, -1, 0, 1, 5].forEach((value) => {
       expect(actions.set(value)).to.eql({
-        type: 'SET_COUNTER', value: value
+        type: 'SET_COUNTER', payload: value
       });
     });
   });
@@ -24,7 +24,7 @@ describe('counter actions', () => {
       testActions(
         { counter: 1 },
         (dispatch) => dispatch(actions.incrementIfOdd()),
-        [ { type: 'INCREMENT_COUNTER', value: 1 } ]
+        [ { type: 'INCREMENT_COUNTER', payload: 1 } ]
       ),
       testActions(
         { counter: 2 },
@@ -34,7 +34,7 @@ describe('counter actions', () => {
       testActions(
         { counter: 3 },
         (dispatch) => dispatch(actions.incrementIfOdd()),
-        [ { type: 'INCREMENT_COUNTER', value: 1 } ]
+        [ { type: 'INCREMENT_COUNTER', payload: 1 } ]
       )
     ]).then(() => done(), done);
   });
@@ -46,7 +46,7 @@ describe('counter actions', () => {
     testActions(
       { counter: 5 },
       (dispatch) => dispatch(actions.incrementAsync()),
-      [ { type: 'INCREMENT_COUNTER', value: 1 } ]
+      [ { type: 'INCREMENT_COUNTER', payload: 1 } ]
     ).then(() => {
       done();
     }).catch(done);
@@ -60,7 +60,7 @@ describe('counter actions', () => {
     testActions(
       { counter: 5 },
       (dispatch) => dispatch(actions.incrementAsync(timeoutMs)),
-      [ { type: 'INCREMENT_COUNTER', value: 1 } ]
+      [ { type: 'INCREMENT_COUNTER', payload: 1 } ]
     ).then(() => {
       done();
     }).catch(done);

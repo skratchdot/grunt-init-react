@@ -2,7 +2,7 @@ import { Col, Row } from 'react-bootstrap';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Footer extends Component {
+export class Footer extends Component {
   render() {
     return (
       <footer>

@@ -1,6 +1,6 @@
 {
   "name": "grunt-init-react",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "grunt-init template for a very basic react project.",
   "homepage": "https://github.com/skratchdot/grunt-init-react/",
   "author": {

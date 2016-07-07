@@ -3,14 +3,14 @@ import * as types from '~/src/app/constants/ActionTypes';
 export function increment(value) {
   return {
     type: types.INCREMENT_COUNTER,
-    value: value
+    payload: value
   };
 }
 
 export function set(value) {
   return {
     type: types.SET_COUNTER,
-    value: value
+    payload: value
   };
 }
 

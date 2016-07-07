@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { increment, set } from '~/src/app/actions/counter';
 import { connect } from 'react-redux';
 
-class Counter extends Component {
+export class Counter extends Component {
   render() {
     const { dispatch, counter } = this.props;
     return (

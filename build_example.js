@@ -33,18 +33,15 @@ gruntInit.on('close', function () {
   });
   npmInstall.stdout.on('data', function (data) {console.log(data.toString());});
   npmInstall.on('close', function () {
-    console.log('`npm install` process terminated. Running `gulp build:prod`.');
+    console.log('`npm install` process terminated. Running `npm run build:prod`.');
     var readme = fs.readFileSync(path.resolve(__dirname + '/README.md'), 'utf-8');
     fs.writeFileSync(path.resolve(__dirname + '/example/README.md'), readme, 'utf-8');
-    var gulpBuild = spawn('gulp', ['build:prod'], {
+    var npmBuild = spawn('npm', ['run', 'build:prod'], {
       cwd: workingDirectory
     });
-    gulpBuild.stdout.on('data', function (data) {console.log(data.toString());});
-    gulpBuild.on('close', function () {
-      console.log('`gulp build:prod` process terminated. Done.');
+    npmBuild.stdout.on('data', function (data) {console.log(data.toString());});
+    npmBuild.on('close', function () {
+      console.log('`npm run build:prod` process terminated. Done.');
     });
-
-
-
   });
 });

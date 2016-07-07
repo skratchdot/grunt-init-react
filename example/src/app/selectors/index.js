@@ -1,17 +1,17 @@
 import Immutable from 'immutable';
 import { createSelector } from 'reselect';
 
-export function countSelector(state) {
-  return state.count;
+export function counterSelector(state) {
+  return state.counter;
 }
 
-export const countListSelector = createSelector(
-  countSelector,
-  (count) => Immutable.List(Immutable.Range(0, count))
+export const counterListSelector = createSelector(
+  counterSelector,
+  (counter) => Immutable.List(Immutable.Range(0, counter))
 );
 
-export const countListReversedSelector = createSelector(
-  countListSelector,
+export const counterListReversedSelector = createSelector(
+  counterListSelector,
   (list) => {
     return list.reverse();
   }

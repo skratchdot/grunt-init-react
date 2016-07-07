@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import packageInfo from '~/package.json';
 
-class Header extends Component {
+export class Header extends Component {
   isLinkActive(pathname) {
     return this.context.router.isActive(pathname) ? 'active' : '';
   }

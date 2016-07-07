@@ -31,7 +31,7 @@ directory and run `grunt-init react` and follow the prompts. You might want to
 test that it works before you begin customizing the project:
 
 * Next, run `npm install` to install the project's dependencies.
-* Then, run `gulp` to build the project and test that it works.
+* Then, run `npm run watch` to build the project and test that it works.
 
 _Note that this template will generate files in the current directory, so be
 sure to change to a new directory first._

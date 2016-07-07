@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import packageInfo from '~/package.json';
 
-class Echo extends Component {
+export class Echo extends Component {
   render() {
     return (
       <div>
