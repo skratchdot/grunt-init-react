@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import Paper from 'material-ui/Paper';
 import { connect } from 'react-redux';
+import packageInfo from '~/package.json';
 
 export class Home extends Component {
   render() {
     return (
-      <div>
-        <Jumbotron className="text-center">
+      <div style={{ padding: 40 }}>
+        <Paper style={{ padding: 40 }}>
           <h1 className="title">
-            {%= name %}
+            {packageInfo.name}
             <br />
-            <small>{%= description %}</small>
+            <small>{packageInfo.description}</small>
           </h1>
           <p>
             This is an example home page
           </p>
-        </Jumbotron>
+        </Paper>
       </div>
     );
   }

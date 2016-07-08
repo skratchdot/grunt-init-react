@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import Paper from 'material-ui/Paper';
 import { connect } from 'react-redux';
 let readmeHtml = '';
 if (process.env.NODE_ENV === 'test') {
@@ -11,7 +11,12 @@ if (process.env.NODE_ENV === 'test') {
 export class About extends Component {
   render() {
     return (
-      <Jumbotron dangerouslySetInnerHTML={{ __html: readmeHtml }} />
+      <div id="about-page" style={{ padding: 40 }}>
+        <Paper style={{ padding: 40 }}>
+          <div dangerouslySetInnerHTML={{ __html: readmeHtml }}>
+          </div>
+        </Paper>
+      </div>
     );
   }
 }

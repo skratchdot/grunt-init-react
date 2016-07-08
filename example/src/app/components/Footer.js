@@ -1,23 +1,43 @@
-import { Col, Row } from 'react-bootstrap';
 import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar';
+import { Box } from 'react-layout-components';
+import GithubIcon from '~/src/app/icons/GithubIcon';
 import { connect } from 'react-redux';
+import packageInfo from '~/package.json';
 
-export class Footer extends Component {
+const author = packageInfo.author.name;
+const githubUrl = `https://github.com/${author}/${packageInfo.name}/`;
+const year = (new Date()).getFullYear();
+
+class Footer extends Component {
   render() {
     return (
       <footer>
-        <Row>
-          <Col md={12}><div className="main-seperator"></div></Col>
-        </Row>
-        <Row className="footer">
-          <Col md={6} className="copyright">
-            &copy; Copyright 2016 &nbsp;
-            <a href="http://skratchdot.com/">skratchdot</a>
-          </Col>
-          <Col md={6} className="social">
-          </Col>
-        </Row>
-        <br />
+        <AppBar
+          titleStyle={{ height: 30, lineHeight: '30px', fontSize: null }}
+          title={
+            <Box fit justifyContent="space-between">
+              <Box>
+                <span>&copy; Copyright {year} &nbsp;</span>
+                <a href={packageInfo.author.url} style={{ color: 'white' }}>
+                  {author}
+                </a>
+              </Box>
+              <Box>
+                <a href={githubUrl} style={{ color: 'white' }}>
+                  View on Github
+                </a>
+                <a href={githubUrl}>
+                  <GithubIcon color="white" style={{
+                    marginTop: 3,
+                    marginLeft: 10
+                  }} />
+                </a>
+              </Box>
+            </Box>
+          }
+          showMenuIconButton={false}
+        />
       </footer>
     );
   }

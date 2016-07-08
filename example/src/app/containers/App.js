@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
-import DevTools from './DevTools';
+import { cyan500, cyan700 } from 'material-ui/styles/colors';
+import DevTools from '~/src/app/containers/DevTools';
 import Footer from '~/src/app/components/Footer';
-import GithubCorner from 'react-github-corner';
-import { Grid } from 'react-bootstrap';
 import Header from '~/src/app/components/Header';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { VBox } from 'react-layout-components';
 import { connect } from 'react-redux';
-import pathGet from 'object-path-get';
-import stringToCssName from '~/src/app/helpers/stringToCssName';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import getPath from 'object-path-get';
+import { setHeight } from '~/src/app/helpers/index';
 
-export class App extends Component {
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: cyan500,
+    primary2Color: cyan700,
+    pickerHeaderColor: cyan500
+  },
+  appBar: {
+    height: 50
+  }
+});
+
+class App extends Component {
   render() {
-    const path = pathGet(this, 'this.children.props.route.path', '');
-    const pageParams = pathGet(this, 'props.params', {});
-    const githubUrl = 'https://github.com/skratchdot/grunt-init-react';
+    const { routes } = this.props;
+    const [ activeRoute ] = routes.slice(-1);
+    const routerPath = getPath(activeRoute, 'path', '');
     return (
-      <div className={`page-${stringToCssName(path)}`}>
-        <Grid>
-          <Header pageParams={pageParams} />
-          {this.props.children}
-          <Footer />
-          <GithubCorner href={githubUrl} />
-        </Grid>
-        <DevTools />
-      </div>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <VBox fit>
+          <VBox flexGrow={0} style={setHeight(50)}>
+            <Header routerPath={routerPath} />
+          </VBox>
+          <VBox fit flexGrow={1} style={{
+            width: '100%',
+            height: '100%',
+            overflow: 'auto'
+          }}>
+            {this.props.children}
+          </VBox>
+          <VBox flexGrow={0} style={setHeight(30)}>
+            <Footer />
+          </VBox>
+          <DevTools />
+        </VBox>
+      </MuiThemeProvider>
     );
   }
 }
