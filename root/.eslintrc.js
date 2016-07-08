@@ -14,6 +14,7 @@ module.exports = {
     "es6": true,
     "mocha": true
   },
+  "extends": "eslint:recommended",
   "rules": {
     "arrow-parens": [2, "always"],
     "arrow-spacing": 2,
@@ -70,6 +71,5 @@ module.exports = {
     "space-infix-ops": 2,
     "strict": [1, "never"],
     "valid-jsdoc": 2
-  },
-  "extends": "eslint:recommended"
+  }
 }

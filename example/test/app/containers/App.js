@@ -6,7 +6,6 @@ import { getMockStore } from '~/test/util';
 import { mount } from 'enzyme';
 import td from 'testdouble';
 let options;
-let props;
 
 describe('<App />', () => {
   beforeEach(() => {
@@ -15,10 +14,6 @@ describe('<App />', () => {
         isActive: td.function(),
         createHref: td.function()
       }
-    };
-    props = {
-      counter: 10,
-      pageParams: { echo: null }
     };
     options = {
       childContextTypes: router,
