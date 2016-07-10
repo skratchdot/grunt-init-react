@@ -1,20 +1,22 @@
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const packageInfo = require('./package.json');
+const devServerEntries = [
+  'webpack-dev-server/client?http://localhost:8080',
+  'webpack/hot/only-dev-server'
+];
 const webpackConfig = {
   context: `${__dirname}/src/app`,
   entry: {
-    'js/app.js': ['./index.js'],
-    'css/app.css': ['./styles/app.less']
+    'js/app.js': ['react-hot-loader/patch', ...devServerEntries, './index.js']
   },
   output: {
     filename: '[name]',
-    path: `${__dirname}/build/dev/${packageInfo.name}`
+    path: `${__dirname}/build/dev/${packageInfo.name}`,
+    publicPath: `http://localhost:8080/${packageInfo.name}/`
   },
   devServer: {
     hot: true,
-    publicPath: `/${packageInfo.name}/`,
     historyApiFallback: {
       index: `/${packageInfo.name}/index.html`
     },
@@ -24,7 +26,6 @@ const webpackConfig = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('css/app.css'),
     new CopyWebpackPlugin([
       { from: './index.html', to: './index.html' },
       { from: './index.html', to: './404.html' }
@@ -41,12 +42,11 @@ const webpackConfig = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['transform/cacheable?brfs', 'react-hot', 'babel-loader']
+        loaders: ['babel']
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader',
-          'css-loader!less-loader')
+        loader: 'style!css!less'
       },
       {
         test: /.*\/images\/.*/,

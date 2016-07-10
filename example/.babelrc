@@ -1,6 +1,6 @@
 {
   "presets": ["es2015", "stage-0", "react"],
-  "plugins": ["babel-root-import"],
+  "plugins": ["react-hot-loader/babel", "babel-root-import"],
   "env": {
     // this plugin will be included only in development mode
     "development": {
