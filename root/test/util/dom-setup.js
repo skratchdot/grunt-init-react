@@ -1,6 +1,7 @@
 /*
  * https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
  */
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { jsdom } from 'jsdom';
 const exposedProperties = ['window', 'navigator', 'document'];
 
@@ -16,3 +17,5 @@ Object.keys(document.defaultView).forEach((property) => {
 global.navigator = {
   userAgent: 'node.js'
 };
+
+injectTapEventPlugin();

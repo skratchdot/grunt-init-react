@@ -21,7 +21,7 @@ const muiTheme = getMuiTheme({
   }
 });
 
-class App extends Component {
+export class App extends Component {
   render() {
     const { routes } = this.props;
     const [ activeRoute ] = routes.slice(-1);

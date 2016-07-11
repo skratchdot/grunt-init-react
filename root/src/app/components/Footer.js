@@ -9,7 +9,7 @@ const author = packageInfo.author.name;
 const githubUrl = `https://github.com/${author}/${packageInfo.name}/`;
 const year = (new Date()).getFullYear();
 
-class Footer extends Component {
+export class Footer extends Component {
   render() {
     return (
       <footer>

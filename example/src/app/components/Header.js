@@ -8,23 +8,20 @@ import GithubIcon from '~/src/app/icons/GithubIcon';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import { Link } from 'react-router';
-import MenuItem from 'material-ui/MenuItem';
+import MenuItemExternal from '~/src/app/components/MenuItemExternal';
+import MenuItemRoute from '~/src/app/components/MenuItemRoute';
 import Subheader from 'material-ui/Subheader';
 import { connect } from 'react-redux';
 import { getRouteList } from '~/src/app/routes';
 import packageInfo from '~/package.json';
-import { push } from 'react-router-redux';
 
 const author = packageInfo.author.name;
 const githubUrl = `https://github.com/${author}/${packageInfo.name}/`;
 const issuesUrl = `${packageInfo.bugs.url}`;
-const leave = (url) => {
-  return () => document.location.href = url;
-};
 
-class Header extends Component {
+export class Header extends Component {
   render() {
-    const { dispatch, routerPath } = this.props;
+    const { routerPath } = this.props;
     const routes = getRouteList();
     const activeRoute = routes.find((r) => r.get('path') === routerPath);
     const height = 50;
@@ -85,19 +82,15 @@ class Header extends Component {
             >
               <Subheader>Navigation</Subheader>
               {routes.filter((route) => route.get('key') !== 'notfound')
-                .map((route) => <MenuItem
-                  primaryText={route.get('title')}
-                  leftIcon={route.get('icon')}
-                  onTouchTap={() => dispatch(push(route.get('link')))}
-              />)}
+                .map((route) => <MenuItemRoute route={route} />)}
               <Divider />
               <Subheader>External Links</Subheader>
-              <MenuItem primaryText="Source Code"
+              <MenuItemExternal primaryText="Source Code"
                 leftIcon={<GithubIcon />}
-                onTouchTap={leave(githubUrl)} />
-              <MenuItem primaryText="Report Bug"
+                url={githubUrl} />
+              <MenuItemExternal primaryText="Report Bug"
                 leftIcon={<ActionBugReport />}
-                onTouchTap={leave(issuesUrl)} />
+                url={issuesUrl} />
             </IconMenu>
           }
         />

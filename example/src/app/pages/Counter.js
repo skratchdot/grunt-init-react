@@ -21,19 +21,19 @@ export class Counter extends Component {
           <Box center style={{ width: '100%' }}>
             <RaisedButton label="Decrement By 10"
               secondary={true} style={buttonStyle}
-              onClick={() => dispatch(increment(-10))} />
+              onTouchTap={() => dispatch(increment(-10))} />
             <RaisedButton label="Decrement By 1"
               primary={true} style={buttonStyle}
-              onClick={() => dispatch(increment(-1))} />
+              onTouchTap={() => dispatch(increment(-1))} />
             <RaisedButton label="Set To 0"
               style={buttonStyle}
-              onClick={() => dispatch(set(0))} />
+              onTouchTap={() => dispatch(set(0))} />
             <RaisedButton label="Increment By 1"
               primary={true} style={buttonStyle}
-              onClick={() => dispatch(increment(1))} />
+              onTouchTap={() => dispatch(increment(1))} />
             <RaisedButton label="Increment By 10"
               secondary={true} style={buttonStyle}
-              onClick={() => dispatch(increment(10))} />
+              onTouchTap={() => dispatch(increment(10))} />
           </Box>
         </Paper>
       </div>
@@ -41,7 +41,7 @@ export class Counter extends Component {
   }
 }
 
-export default connect(function (state) {
+export default connect((state) => {
   return {
     counter: state.counter
   };
