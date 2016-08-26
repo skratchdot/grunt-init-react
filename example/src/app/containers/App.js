@@ -8,7 +8,7 @@ import { VBox } from 'react-layout-components';
 import { connect } from 'react-redux';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import getPath from 'object-path-get';
-import { setHeight } from '~/src/app/helpers/index';
+import setHeight from '~/src/app/util/setHeight';
 
 const muiTheme = getMuiTheme({
   palette: {

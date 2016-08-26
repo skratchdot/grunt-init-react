@@ -1,5 +1,4 @@
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./configureStore-prod');
-} else {
-  module.exports = require('./configureStore-dev');
-}
+import resolveEnvPath from '~/src/app/util/resolveEnvPath';
+const path = resolveEnvPath(process.env.NODE_ENV, './configureStore');
+const configureStore = require(`${path}`).default;
+export default configureStore;

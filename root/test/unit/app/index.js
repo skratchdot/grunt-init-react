@@ -36,14 +36,17 @@ describe('app entry page', () => {
   });
   it('bootstraps our app correctly', () => {
     renderApp = require('~/src/app/index').renderApp;
+    expect(renderApp).to.be.a.function;
   });
   it('works when module.hot is true', () => {
     const theMod = module.children.filter(
       (m) => m.exports.renderApp === renderApp
     )[0];
+    expect(theMod).to.not.have.property('hot');
     theMod.hot = {
       accept: () => {}
     };
+    expect(theMod).to.have.property('hot');
     renderApp();
     delete theMod.hot;
   });
