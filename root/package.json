@@ -10,8 +10,8 @@
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack",
     "build:prod": "cross-env NODE_ENV=production webpack",
-    "clean": "rimraf build/dev/* build/prod/* coverage/*",
-    "cover": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcovonly npm test",
+    "clean": "rimraf build/dev/* build/prod/* .nyc_output/* coverage/*",
+    "cover": "cross-env NODE_ENV=test nyc npm test",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint src test webpack.config.js",
     "test": "cross-env NODE_ENV=test mocha -r babel-register --recursive test",
@@ -20,6 +20,7 @@
     "watch:lint": "watch 'npm run lint' .",
     "watch:test": "npm run test -- -w"
   },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
@@ -85,5 +86,18 @@
     "webpack-dev-server": "^1.15.0",
     "webpack-sources": "^0.1.2"
   },
-  "dependencies": {}
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/*"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "text",
+      "html",
+      "lcovonly"
+    ]
+  }
 }
