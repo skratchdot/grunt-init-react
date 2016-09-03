@@ -5,19 +5,26 @@ import { push } from 'react-router-redux';
 
 export class MenuItemRoute extends Component {
   render() {
-    const { dispatch, route } = this.props;
+    const { onTouchTap, route } = this.props;
     return (
       <MenuItem
         primaryText={route.get('title')}
         leftIcon={route.get('icon')}
-        onTouchTap={() => dispatch(push(route.get('link')))}
+        onTouchTap={onTouchTap}
       />
     );
   }
 }
 
 MenuItemRoute.propTypes = {
+  onTouchTap: React.PropTypes.func,
   route: React.PropTypes.object.isRequired
 };
 
-export default connect()(MenuItemRoute);
+export function mapDispatchToProps(dispatch, props) {
+  return {
+    onTouchTap: () => dispatch(push(props.route.get('link')))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(MenuItemRoute);

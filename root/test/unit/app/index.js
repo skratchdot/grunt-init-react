@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { getMockPath } from '~/test/util';
 import mockery from 'mockery';
 import reactDomMock from '~/test/mocks/react-dom';
 import reactHotLoaderMock from '~/test/mocks/react-hot-loader';
@@ -23,8 +22,7 @@ describe('app entry page', () => {
     mockery.registerMock('./containers/Root',
       td.function());
     mockery.registerMock('react-router', reduxRouterMock());
-    mockery.registerMock(getMockPath('~/src/app/store/configureStore'),
-      td.function());
+    mockery.registerMock('./store/configureStore', td.function());
     mockery.registerMock('react-tap-event-plugin', reactTapEventPluginMock());
     mockery.registerMock('react-dom', reactDomMock());
     mockery.registerMock('react-router-redux', reactReduxRouterMock());

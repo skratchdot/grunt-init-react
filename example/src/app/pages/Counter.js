@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 export class Counter extends Component {
   render() {
-    const { dispatch, counter } = this.props;
+    const { counter, onIncrement, onSet } = this.props;
     const buttonStyle = { margin: 10 };
     return (
       <div style={{ padding: 40 }}>
@@ -21,19 +21,19 @@ export class Counter extends Component {
           <Box center style={{ width: '100%' }}>
             <RaisedButton label="Decrement By 10"
               secondary={true} style={buttonStyle}
-              onTouchTap={() => dispatch(increment(-10))} />
+              onTouchTap={() => onIncrement(-10)} />
             <RaisedButton label="Decrement By 1"
               primary={true} style={buttonStyle}
-              onTouchTap={() => dispatch(increment(-1))} />
+              onTouchTap={() => onIncrement(-1)} />
             <RaisedButton label="Set To 0"
               style={buttonStyle}
-              onTouchTap={() => dispatch(set(0))} />
+              onTouchTap={() => onSet(0)} />
             <RaisedButton label="Increment By 1"
               primary={true} style={buttonStyle}
-              onTouchTap={() => dispatch(increment(1))} />
+              onTouchTap={() => onIncrement(1)} />
             <RaisedButton label="Increment By 10"
               secondary={true} style={buttonStyle}
-              onTouchTap={() => dispatch(increment(10))} />
+              onTouchTap={() => onIncrement(10)} />
           </Box>
         </Paper>
       </div>
@@ -41,8 +41,21 @@ export class Counter extends Component {
   }
 }
 
+Counter.propTypes = {
+  counter: React.PropTypes.number.required,
+  onIncrement: React.PropTypes.func,
+  onSet: React.PropTypes.func
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    onIncrement: (val) => dispatch(increment(val)),
+    onSet: (val) => dispatch(set(val))
+  };
+}
+
 export default connect((state) => {
   return {
     counter: state.counter
   };
-})(Counter);
+}, mapDispatchToProps)(Counter);

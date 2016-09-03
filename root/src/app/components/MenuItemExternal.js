@@ -19,5 +19,10 @@ export class MenuItemExternal extends Component {
   }
 }
 
+MenuItemExternal.propTypes = {
+  leftIcon: React.PropTypes.element,
+  primaryText: React.PropTypes.string.isRequired,
+  url: React.PropTypes.string.isRequired
+};
 
 export default connect()(MenuItemExternal);

@@ -3,13 +3,14 @@ import { Provider, connect } from 'react-redux';
 import React, { Component } from 'react';
 import { Router } from 'react-router';
 import { getRoutes } from '~/src/app/routes';
+import { openHeaderMenu } from '~/src/app/actions/headerMenuOpen';
 
 export class Root extends Component {
   render() {
-    const { store, history } = this.props;
+    const { store, history, onRouteUpdate } = this.props;
     return (
       <Provider store={store}>
-        <Router history={history}>
+        <Router history={history} onUpdate={onRouteUpdate}>
           {getRoutes()}
         </Router>
       </Provider>
@@ -18,8 +19,15 @@ export class Root extends Component {
 }
 
 Root.propTypes = {
-  store: React.PropTypes.object.isRequired,
-  history: React.PropTypes.object.isRequired
+  history: React.PropTypes.object.isRequired,
+  onRouteUpdate: React.PropTypes.func,
+  store: React.PropTypes.object.isRequired
 };
 
-export default connect()(Root);
+export function mapDispatchToProps(dispatch) {
+  return {
+    onRouteUpdate: () => dispatch(openHeaderMenu(false))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Root);

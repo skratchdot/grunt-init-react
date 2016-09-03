@@ -7,7 +7,7 @@ import { getMockStore } from '~/test/util';
 import { mount } from 'enzyme';
 import td from 'testdouble';
 let options;
-let routes = [{
+const routes = [{
   path: '/foo/bar'
 }];
 

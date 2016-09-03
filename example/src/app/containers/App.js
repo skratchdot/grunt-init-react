@@ -49,4 +49,9 @@ export class App extends Component {
   }
 }
 
+App.propTypes = {
+  children: React.PropTypes.array,
+  routes: React.PropTypes.array
+};
+
 export default connect()(App);

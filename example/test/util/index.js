@@ -25,6 +25,16 @@ export function getMockPath(modulePath) {
   return path.resolve(modulePath.replace('~', `${__dirname}/../../`));
 }
 
+export function testValues(reducer, actionType, values) {
+  values.forEach((arr) => {
+    const [ currentState, payload, expectedState ] = arr;
+    expect(reducer(currentState, {
+      type: actionType,
+      payload: payload
+    })).to.eql(expectedState);
+  });
+}
+
 export function testActions(initialState, fn, expectedActions, subscribeCount) {
   return new Promise((resolve, reject) => {
     try {

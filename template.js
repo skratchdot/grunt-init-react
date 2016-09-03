@@ -49,6 +49,7 @@ exports.template = function(grunt, init, done) {
 
     // Generate package.json file.
     init.writePackageJSON('package.json', props, function (pkg, props) {
+      pkg.license = props.license;
       pkg.nyc = props.nyc;
       return pkg;
     });

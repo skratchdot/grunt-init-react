@@ -2,7 +2,6 @@ import { About } from '~/src/app/pages/About';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import { expect } from 'chai';
-import { getMockPath } from '~/test/util';
 import mockery from 'mockery';
 import { mount } from 'enzyme';
 import td from 'testdouble';
@@ -18,7 +17,7 @@ describe('pages -> <About />', () => {
   });
   it('renders <About /> page in non-test mode', () => {
     mockery.enable();
-    mockery.registerMock(getMockPath('~/README.md'), '<div>TEST_README</div>');
+    mockery.registerMock('../../../README.md', '<div>TEST_README</div>');
     td.replace(process, 'env', {
       NODE_ENV: 'production'
     });

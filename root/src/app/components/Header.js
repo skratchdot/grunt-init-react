@@ -13,6 +13,7 @@ import MenuItemRoute from '~/src/app/components/MenuItemRoute';
 import Subheader from 'material-ui/Subheader';
 import { connect } from 'react-redux';
 import { getRouteList } from '~/src/app/routes';
+import { openHeaderMenu } from '~/src/app/actions/headerMenuOpen';
 import packageInfo from '~/package.json';
 
 const author = packageInfo.author.name;
@@ -21,7 +22,7 @@ const issuesUrl = `${packageInfo.bugs.url}`;
 
 export class Header extends Component {
   render() {
-    const { routerPath } = this.props;
+    const { headerMenuOpen, onHeaderChange, routerPath } = this.props;
     const routes = getRouteList();
     const activeRoute = routes.find((r) => r.get('path') === routerPath);
     const height = 50;
@@ -72,6 +73,8 @@ export class Header extends Component {
           showMenuIconButton={false}
           iconElementRight={
             <IconMenu
+              open={headerMenuOpen}
+              onRequestChange={onHeaderChange}
               iconButtonElement={
                 <IconButton>
                   <NavigationMoreVert />
@@ -82,7 +85,8 @@ export class Header extends Component {
             >
               <Subheader>Navigation</Subheader>
               {routes.filter((route) => route.get('key') !== 'notfound')
-                .map((route) => <MenuItemRoute route={route} />)}
+                .map((route) => <MenuItemRoute
+                  key={route.get('key')} route={route} />)}
               <Divider />
               <Subheader>External Links</Subheader>
               <MenuItemExternal primaryText="Source Code"
@@ -100,6 +104,8 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
+  headerMenuOpen: React.PropTypes.bool.isRequired,
+  onHeaderChange: React.PropTypes.func.isRequired,
   routerPath: React.PropTypes.string.isRequired
 };
 
@@ -107,8 +113,14 @@ Header.contextTypes = {
   router: React.PropTypes.object
 };
 
+export function mapDispatchToProps(dispatch) {
+  return {
+    onHeaderChange: (open) => dispatch(openHeaderMenu(open))
+  };
+}
+
 export default connect((state) => {
   return {
-    routing: state.routing
+    headerMenuOpen: state.headerMenuOpen
   };
-})(Header);
+}, mapDispatchToProps)(Header);

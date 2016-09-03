@@ -7,16 +7,17 @@ import packageInfo from '~/package.json';
 
 export class Echo extends Component {
   render() {
+    const { params, route } = this.props;
     return (
       <div style={{ padding: 40 }}>
         <Paper style={{ padding: 40, textAlign: 'center' }}>
           <h4>Echo:</h4>
-          &quot;{this.props.params.echo}&quot;
+          &quot;{params.echo}&quot;
         </Paper>
         <br />
         <Paper style={{ padding: 40, textAlign: 'center' }}>
           <h4>Path:</h4>
-          {this.props.route.path}
+          {route.path}
         </Paper>
         <br />
         <Paper style={{ padding: 40, textAlign: 'center' }}>
@@ -33,5 +34,10 @@ export class Echo extends Component {
     );
   }
 }
+
+Echo.propTypes = {
+  params: React.PropTypes.object.required,
+  route: React.PropTypes.object.required
+};
 
 export default connect()(Echo);

@@ -69,6 +69,7 @@ export function getRoutes() {
   return (
     <Route component={App}>
       {routes.map((route) => <Route
+        key={route.get('key')}
         path={route.get('path')}
         component={route.get('component')}
       />)}

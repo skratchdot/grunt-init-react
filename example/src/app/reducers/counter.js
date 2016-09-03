@@ -1,6 +1,6 @@
 import * as types from '~/src/app/constants/ActionTypes';
 
-export default function counter(state = 0, action) {
+export default (state = 0, action) => {
   switch (action.type) {
   case types.INCREMENT_COUNTER:
     return state + action.payload;
@@ -9,4 +9,4 @@ export default function counter(state = 0, action) {
   default:
     return state;
   }
-}
+};

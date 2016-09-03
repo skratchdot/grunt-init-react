@@ -1,4 +1,6 @@
-import ConnectedHeader, { Header } from '~/src/app/components/Header';
+import ConnectedHeader, {
+  Header, mapDispatchToProps
+} from '~/src/app/components/Header';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Provider } from 'react-redux';
 import React from 'react';
@@ -50,5 +52,13 @@ describe('<Header />', () => {
         <Header {...props} routerPath={`/${packageInfo.name}/about`} />
       </MuiThemeProvider>, options);
     expect(wrapper.find('header')).to.have.length(1);
+  });
+  it('uses mapDispatchToProps when connected', () => {
+    const dispatch = td.function();
+    const map = mapDispatchToProps(dispatch);
+    expect(map).to.be.an.object;
+    expect(map).to.have.property('onHeaderChange');
+    map.onHeaderChange(true);
+    expect(td.explain(dispatch).callCount).to.eql(1);
   });
 });
