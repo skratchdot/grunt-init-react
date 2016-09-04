@@ -41,11 +41,11 @@ sure to change to a new directory first._
 
 To see an example of the site that is generated, you can visit the demo site:
 
-- [Demo Site](http://projects.skratchdot.com/grunt-init-react/)
+- [Demo Site](https://projects.skratchdot.com/grunt-init-react/)
 - [Source Code](https://github.com/skratchdot/grunt-init-react/)
 
 
 ## License
 
-Copyright (c) 2015 [skratchdot](http://skratchdot.com/)  
+Copyright (c) 2015 [skratchdot](https://www.skratchdot.com/)  
 Licensed under the MIT license.
