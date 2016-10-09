@@ -19,6 +19,10 @@
   "engines": {
     "node": ">= 4.x.0"
   },
+  "scripts": {
+    "build": "./build_example.js",
+    "start": "npm --prefix ./example run start"
+  },
   "dependencies": {
     "grunt": "~1.0.1"
   },

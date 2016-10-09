@@ -37,6 +37,7 @@ describe('app entry page', () => {
     expect(renderApp).to.be.a.function;
   });
   it('works when module.hot is true', () => {
+    renderApp = require('~/src/app/index').renderApp;
     const theMod = module.children.filter(
       (m) => m.exports.renderApp === renderApp
     )[0];
